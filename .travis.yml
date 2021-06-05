@@ -15,8 +15,8 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 notifications:
-  email:eu.kondratev@yandex.ru
+  email:
     recipients:
-      - rail.shamsemukhametov@mail.ru
+      - eu.kondratev@yandex.ru
     on_success: never # default: change
     on_failure: always # default: always
