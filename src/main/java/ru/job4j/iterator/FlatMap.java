@@ -7,15 +7,14 @@ import java.util.Collections;
 
 public class FlatMap<T> implements Iterator<T> {
     private final Iterator<Iterator<T>> data;
-    private Iterator<T> cursor = Collections.emptyIterator();
-
-    public FlatMap(Iterator<Iterator<T>> data) {
-        this.data = data;
-    }
+    private Iterator<T> cursor;
 
     @Override
     public boolean hasNext() {
-        return false;
+        while (!cursor.hasNext() && data.hasNext()) {
+            this.cursor = data.next();
+        }
+        return cursor.hasNext();
     }
 
     @Override
@@ -26,6 +25,11 @@ public class FlatMap<T> implements Iterator<T> {
         return cursor.next();
     }
 
+    public FlatMap(Iterator<Iterator<T>> data) {
+        this.data = data;
+        this.cursor = Collections.emptyIterator();
+    }
+
     public static void main(String[] args) {
         Iterator<Iterator<Integer>> data = List.of(
                 List.of(1, 2, 3).iterator(),
@@ -34,7 +38,7 @@ public class FlatMap<T> implements Iterator<T> {
         ).iterator();
         FlatMap<Integer> flat = new FlatMap<>(data);
         while (flat.hasNext()) {
-            System.out.println(flat.next());
+            System.out.print(flat.next() + " ");
         }
     }
 }
