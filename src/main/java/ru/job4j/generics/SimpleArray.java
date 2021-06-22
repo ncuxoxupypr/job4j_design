@@ -13,21 +13,21 @@ public class SimpleArray<T> implements Iterable<T> {
         this.elements = new Object[size];
     }
 
-    public void add(T model) throws IndexOutOfBoundsException {
+    public void add(T model) {
         elements[pos++] = model;
     }
 
-    public void set(int index, T model) throws IndexOutOfBoundsException {
+    public void set(int index, T model)  {
         checkIndex(index, pos);
         elements[index] = model;
     }
 
-    public T get(int index) throws IndexOutOfBoundsException {
+    public T get(int index)  {
         checkIndex(index, pos);
         return (T) elements[index];
     }
 
-    public void remove(int index) throws IndexOutOfBoundsException {
+    public void remove(int index)  {
         checkIndex(index, pos);
         System.arraycopy(elements, index + 1, elements, index, elements.length - index - 1);
         elements[--this.pos] = null;
