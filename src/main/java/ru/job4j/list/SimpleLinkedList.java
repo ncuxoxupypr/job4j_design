@@ -11,7 +11,6 @@ public class SimpleLinkedList<E> implements List<E> {
     private int size = 0;
     private int modCount = 0;
 
-    @SuppressWarnings("checkstyle:WhitespaceAfter")
     @Override
     public void add(E value) {
         modCount++;
