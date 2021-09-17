@@ -20,14 +20,14 @@ public class ListUtils {
 
     public static <T> void addAfter(List<T> list, int index, T value) {
         Objects.checkIndex(index, list.size());
-        ListIterator<T> listIterator = list.listIterator();
-        while(listIterator.hasNext()) {
-            if (listIterator.previousIndex() == index) {
-                listIterator.add(value);
+        ListIterator<T> it = list.listIterator();
+        while (it.hasNext()) {
+            if (it.previousIndex() == index) {
+                it.add(value);
             }
-            listIterator.next();
+            it.next();
         }
-        listIterator.add(value);
+        it.add(value);
     }
 
     public static <T> void removeIf(List<T> list, Predicate<T> filter) {
