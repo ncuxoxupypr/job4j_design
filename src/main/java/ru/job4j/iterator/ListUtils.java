@@ -22,12 +22,13 @@ public class ListUtils {
         Objects.checkIndex(index, list.size());
         ListIterator<T> it = list.listIterator();
         while (it.hasNext()) {
-            if (it.previousIndex() == index) {
+            if (it.nextIndex() == index && it.nextIndex() != list.size()) {
+                it.next();
                 it.add(value);
+                break;
             }
             it.next();
         }
-        it.add(value);
     }
 
     public static <T> void removeIf(List<T> list, Predicate<T> filter) {
