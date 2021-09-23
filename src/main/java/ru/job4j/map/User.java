@@ -30,11 +30,14 @@ public class User {
     }
 
     @Override
-    public int hashCode() {
-        int result = 17;
-        result = 31 * result + (name == null ? 0 : name.hashCode());
-        result = 31 * result + children;
-        result = 31 * result + (birthday == null ? 0 : birthday.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return children == user.children && Objects.equals(name, user.name) && Objects.equals(birthday, user.birthday);
     }
 }
