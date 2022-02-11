@@ -20,6 +20,10 @@ public class SimpleTree<E> implements Tree<E> {
         return rsl;
     }
 
+    public boolean isBinary() {
+        return findByPredicate(x -> x.children.size() > 2).isEmpty();
+    }
+
     private Optional<Node<E>> findByPredicate(Predicate<Node<E>> condition) {
         Optional<Node<E>> rsl = Optional.empty();
         Queue<Node<E>> data = new LinkedList<>();
