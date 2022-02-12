@@ -18,10 +18,7 @@ public class User {
         User user1 = new User("Alisa", 3, new GregorianCalendar(2018, Calendar.JULY, 16));
         System.out.println("Hashcode user: " + user.hashCode());
         System.out.println("Hashcode user1: " + user1.hashCode());
-//        Map<User, Object> map = new HashMap<>();
-//        map.put(user, new Object());
-//        map.put(user1, new Object());
-//        map.forEach((key, value) -> System.out.println("key: " + key + " value: " + value));
+
     }
 
     @Override

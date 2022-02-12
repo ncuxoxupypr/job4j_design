@@ -34,7 +34,7 @@ public class ForwardLinkedTest {
         Iterator<Integer> it = linked.iterator();
         assertThat(it.next(), is(2));
     }
-     // Перевернуть связанный список
+
 
     @Test
     public void whenAddThenIter() {
